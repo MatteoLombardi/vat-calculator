@@ -1,0 +1,90 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>Select a country</mat-label>
+    <mat-select
+      [(value)]="countrySelected"
+      (selectionChange)="resetVat()"
+    >
+      <mat-option *ngFor="let country of countries" [value]="country">
+        {{ country.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngIf="countrySelected">
+    <label id="vat-radio-group-label">VAT rate</label>
+    <mat-radio-group
+      aria-labelledby="vat-radio-group-label"
+      class="vat-radio-group"
+      [(ngModel)]="vatRate"
+      (change)="resetForm()"
+    >
+      <mat-radio-button
+        class="example-radio-button"
+        *ngFor="let rate of countrySelected.availableVatRates"
+        [value]="rate"
+      >
+        {{ rate + "%" }}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="countrySelected">
+    <form class="calculator-form" [formGroup]="calculatorForm">
+      <h1>Calculator</h1>
+      <div>
+        <mat-form-field>
+          <mat-label>Price without VAT</mat-label>
+          <input type="number" matInput formControlName="netControl" [readonly]="vatRate === 0"/>
+          <mat-error
+            *ngIf="
+              calculatorForm.controls.netControl.hasError('min') &&
+              !(vatRate === 0)
+            "
+          >
+            <strong>0</strong> is not a valid value
+          </mat-error>
+          <mat-error *ngIf="vatRate === 0">
+            Please select a valid <strong>VAT rate</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Value-Added Tax</mat-label>
+          <input type="number" matInput formControlName="vatRateControl" [readonly]="vatRate === 0"/>
+          <mat-error
+            *ngIf="
+              calculatorForm.controls.vatRateControl.hasError('min') &&
+              !(vatRate === 0)
+            "
+          >
+            <strong>0</strong> is not a valid value
+          </mat-error>
+          <mat-error *ngIf="vatRate === 0">
+            Please select a valid <strong>VAT rate</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Value-Added Tax</mat-label>
+          <input type="number" matInput formControlName="grossControl" [readonly]="vatRate === 0"/>
+          <mat-error
+            *ngIf="
+              calculatorForm.controls.grossControl.hasError('min') &&
+              !(vatRate === 0)
+            "
+          >
+            <strong>0</strong> is not a valid value
+          </mat-error>
+          <mat-error *ngIf="vatRate === 0">
+            Please select a valid <strong>VAT rate</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+</div>
