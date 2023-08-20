@@ -474,11 +474,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mlombardi/Projects/vat-calculator-backend/vat-calculator-backend.csproj",
+      "projectUniqueName": "/Users/mlombardi/Desktop/Projects/vat-calculator/vat-calculator-backend/vat-calculator-backend.csproj",
       "projectName": "vat-calculator-backend",
-      "projectPath": "/Users/mlombardi/Projects/vat-calculator-backend/vat-calculator-backend.csproj",
+      "projectPath": "/Users/mlombardi/Desktop/Projects/vat-calculator/vat-calculator-backend/vat-calculator-backend.csproj",
       "packagesPath": "/Users/mlombardi/.nuget/packages/",
-      "outputPath": "/Users/mlombardi/Projects/vat-calculator-backend/obj/",
+      "outputPath": "/Users/mlombardi/Desktop/Projects/vat-calculator/vat-calculator-backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/mlombardi/.nuget/NuGet/NuGet.Config"

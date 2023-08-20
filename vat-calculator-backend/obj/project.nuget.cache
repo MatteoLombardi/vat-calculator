@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oZuoN9k6F9E3wPoWjf3r8hYx1xrYvexm4WiKI84GlUjh/4aOqqTbGqTaIZSYvy4l/w1thdxyQ5kuD0NhSfu28w==",
+  "dgSpecHash": "WARwJh9amq9K0Oyn7L5b/5R3YAvnl1WN7JoBjJIKu7sQL8ywmazAeHep3515S96edrnsXTLzea0kmI97KzKRmA==",
   "success": true,
-  "projectFilePath": "/Users/mlombardi/Projects/vat-calculator-backend/vat-calculator-backend.csproj",
+  "projectFilePath": "/Users/mlombardi/Desktop/Projects/vat-calculator/vat-calculator-backend/vat-calculator-backend.csproj",
   "expectedPackageFiles": [
     "/Users/mlombardi/.nuget/packages/microsoft.aspnetcore.openapi/7.0.10/microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "/Users/mlombardi/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
