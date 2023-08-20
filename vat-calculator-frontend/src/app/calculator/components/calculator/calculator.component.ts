@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Country } from '../../models/country.model';
 import { Subscription } from 'rxjs';
+import { NationService } from '../../services/nation.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-calculator',
@@ -18,18 +20,27 @@ export class CalculatorComponent implements OnInit, OnDestroy {
     grossControl: ['', Validators.min(0.01)],
   });
 
-  constructor(private fb: FormBuilder) {}
+  countries: Array<Country> = [];
+
+  constructor(private fb: FormBuilder, private nationService: NationService) {}
   ngOnInit(): void {
+    this.subs.push(
+      this.nationService.retrieveCountries().subscribe((res) => {
+        this.countries = res;
+      })
+    );
     this.subs.push(
       this.calculatorForm.controls.netControl.valueChanges.subscribe(
         (value) => {
           const vatValue: number = +value * (this.vatRate / 100);
           const grossValue: number = +value + vatValue;
           this.calculatorForm.controls.vatRateControl.setValue(
-            vatValue.toFixed(2).toString(), { emitEvent: false }
+            vatValue.toFixed(2).toString(),
+            { emitEvent: false }
           );
           this.calculatorForm.controls.grossControl.setValue(
-            grossValue.toFixed(2).toString(), { emitEvent: false }
+            grossValue.toFixed(2).toString(),
+            { emitEvent: false }
           );
         }
       )
@@ -41,10 +52,12 @@ export class CalculatorComponent implements OnInit, OnDestroy {
           const netValue: number = (+value * 100) / this.vatRate;
           const grossValue: number = +value + netValue;
           this.calculatorForm.controls.netControl.setValue(
-            netValue.toFixed(2).toString(), { emitEvent: false }
+            netValue.toFixed(2).toString(),
+            { emitEvent: false }
           );
           this.calculatorForm.controls.grossControl.setValue(
-            grossValue.toFixed(2).toString(), { emitEvent: false }
+            grossValue.toFixed(2).toString(),
+            { emitEvent: false }
           );
         }
       )
@@ -53,13 +66,15 @@ export class CalculatorComponent implements OnInit, OnDestroy {
     this.subs.push(
       this.calculatorForm.controls.grossControl.valueChanges.subscribe(
         (value) => {
-          const netValue: number = +value / (this.vatRate/100 + 1)
+          const netValue: number = +value / (this.vatRate / 100 + 1);
           const vatValue: number = +value - netValue;
           this.calculatorForm.controls.netControl.setValue(
-            netValue.toFixed(2).toString(), { emitEvent: false }
+            netValue.toFixed(2).toString(),
+            { emitEvent: false }
           );
           this.calculatorForm.controls.vatRateControl.setValue(
-            vatValue.toFixed(2).toString(), { emitEvent: false }
+            vatValue.toFixed(2).toString(),
+            { emitEvent: false }
           );
         }
       )
@@ -69,13 +84,6 @@ export class CalculatorComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subs.forEach((sub) => sub.unsubscribe());
   }
-
-  countries: Country[] = [
-    { value: 'at', viewValue: 'Austria', availableVatRates: [5, 10, 13, 20] },
-    { value: 'uk', viewValue: 'United Kingdom', availableVatRates: [5, 20] },
-    { value: 'pt', viewValue: 'Portugal', availableVatRates: [6, 13, 23] },
-    { value: 'sgp', viewValue: 'Singapore', availableVatRates: [7] },
-  ];
 
   resetVat() {
     this.vatRate = 0;
