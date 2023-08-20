@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/vat-calculator-backend.props" />
+</Project>

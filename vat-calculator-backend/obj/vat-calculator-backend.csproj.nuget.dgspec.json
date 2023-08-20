@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mlombardi/Desktop/Projects/vat-calculator/vat-calculator-backend/vat-calculator-backend.csproj": {}
+    "/Users/mlombardi/Projects/vat-calculator-backend/vat-calculator-backend.csproj": {}
   },
   "projects": {
-    "/Users/mlombardi/Desktop/Projects/vat-calculator/vat-calculator-backend/vat-calculator-backend.csproj": {
+    "/Users/mlombardi/Projects/vat-calculator-backend/vat-calculator-backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mlombardi/Desktop/Projects/vat-calculator/vat-calculator-backend/vat-calculator-backend.csproj",
+        "projectUniqueName": "/Users/mlombardi/Projects/vat-calculator-backend/vat-calculator-backend.csproj",
         "projectName": "vat-calculator-backend",
-        "projectPath": "/Users/mlombardi/Desktop/Projects/vat-calculator/vat-calculator-backend/vat-calculator-backend.csproj",
+        "projectPath": "/Users/mlombardi/Projects/vat-calculator-backend/vat-calculator-backend.csproj",
         "packagesPath": "/Users/mlombardi/.nuget/packages/",
-        "outputPath": "/Users/mlombardi/Desktop/Projects/vat-calculator/vat-calculator-backend/obj/",
+        "outputPath": "/Users/mlombardi/Projects/vat-calculator-backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mlombardi/.nuget/NuGet/NuGet.Config"
@@ -39,9 +39,13 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.InMemory": {
+            "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

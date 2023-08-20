@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "IUdGngeCTTkp5WODapcfVYsYe0ukotHD3jj9BaVnDOw=",
+  "Source": "vat-calculator-backend",
+  "BasePath": "_content/vat-calculator-backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
