@@ -17,7 +17,7 @@ export class CalculatorComponent implements OnInit, OnDestroy {
   calculatorForm = this.fb.group({
     netControl: ['', Validators.min(0.01)],
     vatRateControl: ['', Validators.min(0.01)],
-    grossControl: ['', Validators.min(0.01)],
+    grossControl: ['', Validators.min(0.01)]
   });
 
   countries: Array<Country> = [];
